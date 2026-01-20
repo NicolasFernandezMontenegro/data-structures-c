@@ -1,0 +1,5 @@
+*.o
+*.out
+test_stack_array
+test_stack_list
+a.out
