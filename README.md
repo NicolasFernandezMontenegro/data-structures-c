@@ -10,39 +10,14 @@ This repository contains a curated implementation of core data structures in **C
 
 Each module is implemented as an independent component with its own header, implementation, and tests.
 
-### Included data structures
+- Stack ADT
+  - Array-based stack
+  - Linked-list-based stack
 
-* **Stack**
+- Queue ADT
+  - Array-based circular buffer queue
+  - Linked-list-based queue
 
-  * Array-based implementation
-  * Linked-list-based implementation
-  * Comparison of memory and performance trade-offs
-
-* **Queue**
-
-  * Efficient O(1) enqueue and dequeue
-  * Edge-case handling for empty and singleton queues
-
-* **Binary Search Tree (BST)**
-
-  * Insert, search, and removal
-  * Non-trivial deletion cases
-  * Explicit representation invariants
-
-* **Dictionary (Key-Value Store)**
-
-  * Built on top of a BST
-  * Demonstrates code reuse and abstraction
-
-* **String ADT**
-
-  * Manual memory management
-  * Copy, comparison, and ordering operations
-
-* **Tower of Hanoi**
-
-  * Recursive algorithm implementation
-  * Used as a case study for debugging and memory analysis
 
 ---
 
@@ -81,14 +56,35 @@ The emphasis is on correctness, clarity, and reasoning rather than completeness 
 
 ## Build & Usage
 
-A simple `Makefile` is provided to compile individual modules and run basic tests.
+A simple `Makefile` is provided to compile and test each data structure
+(Stack and Queue), with both array-based and list-based implementations.
 
 ```bash
 make
 ```
 
-Each module can be compiled independently.
+This builds the following test binaries:
 
+    test_stack_array
+
+    test_stack_list
+
+    test_queue_array
+
+    test_queue_list
+
+Each data structure can also be built independently:
+
+```bash
+make stack
+make queue
+```
+
+To clean all generated binaries:
+
+```bash
+make clean
+```
 ---
 
 ## Background

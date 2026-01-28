@@ -1,29 +1,66 @@
 CC      = gcc
 CFLAGS  = -std=c11 -Wall -Wextra -Werror -g
 
-SRC     = src
+SRC = src
 
+# =======================
+# Stack
+# =======================
+STACK_DIR = $(SRC)/stack
 
-ARRAY_SRC = $(SRC)/stack/stack_array.c
-LIST_SRC  = $(SRC)/stack/stack_list.c
-INTERNAL  = $(SRC)/stack/stack_internal.c
-TEST_SRC  = $(SRC)/stack/test_stack.c
+STACK_ARRAY_SRC = $(STACK_DIR)/stack_array.c
+STACK_LIST_SRC  = $(STACK_DIR)/stack_list.c
+STACK_INTERNAL  = $(STACK_DIR)/stack_internal.c
+STACK_TEST      = $(STACK_DIR)/test_stack.c
 
-BIN_ARRAY = test_stack_array
-BIN_LIST  = test_stack_list
+BIN_STACK_ARRAY = test_stack_array
+BIN_STACK_LIST  = test_stack_list
 
-.PHONY: all array list clean
+# =======================
+# Queue
+# =======================
+QUEUE_DIR = $(SRC)/queue
 
-all: array list
+QUEUE_ARRAY_SRC = $(QUEUE_DIR)/queue_array.c
+QUEUE_LIST_SRC  = $(QUEUE_DIR)/queue_list.c
+QUEUE_INTERNAL  = $(QUEUE_DIR)/queue_internal.c
+QUEUE_TEST      = $(QUEUE_DIR)/test_queue.c
 
-array: $(BIN_ARRAY)
-list: $(BIN_LIST)
+BIN_QUEUE_ARRAY = test_queue_array
+BIN_QUEUE_LIST  = test_queue_list
 
-$(BIN_ARRAY): $(ARRAY_SRC) $(INTERNAL) $(TEST_SRC)
+# =======================
+# Targets
+# =======================
+.PHONY: all stack queue clean
+
+all: stack queue
+
+stack: $(BIN_STACK_ARRAY) $(BIN_STACK_LIST)
+queue: $(BIN_QUEUE_ARRAY) $(BIN_QUEUE_LIST)
+
+# =======================
+# Stack builds
+# =======================
+$(BIN_STACK_ARRAY): $(STACK_ARRAY_SRC) $(STACK_INTERNAL) $(STACK_TEST)
 	$(CC) $(CFLAGS) $^ -o $@
 
-$(BIN_LIST): $(LIST_SRC) $(INTERNAL) $(TEST_SRC)
+$(BIN_STACK_LIST): $(STACK_LIST_SRC) $(STACK_INTERNAL) $(STACK_TEST)
 	$(CC) $(CFLAGS) $^ -o $@
 
+# =======================
+# Queue builds
+# =======================
+$(BIN_QUEUE_ARRAY): $(QUEUE_ARRAY_SRC) $(QUEUE_INTERNAL) $(QUEUE_TEST)
+	$(CC) $(CFLAGS) $^ -o $@
+
+$(BIN_QUEUE_LIST): $(QUEUE_LIST_SRC) $(QUEUE_INTERNAL) $(QUEUE_TEST)
+	$(CC) $(CFLAGS) $^ -o $@
+
+# =======================
+# Clean
+# =======================
 clean:
-	rm -f $(BIN_ARRAY) $(BIN_LIST)
+	rm -f \
+	$(BIN_STACK_ARRAY) $(BIN_STACK_LIST) \
+	$(BIN_QUEUE_ARRAY) $(BIN_QUEUE_LIST)
