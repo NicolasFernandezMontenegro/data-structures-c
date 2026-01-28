@@ -11,7 +11,7 @@ bool stack_invariant(const struct stack *s){
                     check = s->impl.array.data != NULL;
                 } 
                 else if (s->impl.array.capacity == 0){
-                    check = s->impl.array.data == NULL;
+                    check = s->impl.array.data == NULL && s->size == 0;
                 }
             }
         }

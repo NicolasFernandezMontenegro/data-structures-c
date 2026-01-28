@@ -13,7 +13,7 @@ bool queue_invariant(const struct queue* q){
                     } 
                 }
             } else {
-                check = q->impl.array.data == NULL && q->impl.array.front == 0;
+                check = q->impl.array.data == NULL && q->impl.array.front == 0 && q->size == 0;
             }
         }
         else if (q->repr == QUEUE_LIST){
