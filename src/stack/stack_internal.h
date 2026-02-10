@@ -5,9 +5,6 @@
 #include <stddef.h>
 #include <assert.h>
 
-/* =========================
- * Stack representations
- * ========================= */
 
 typedef enum {
     STACK_ARRAY,
@@ -37,9 +34,6 @@ struct stack {
     } impl;
 };
 
-/* =========================
- * Invariant checking
- * ========================= */
 
 /*
  * Checks whether the stack satisfies its representation invariants.

@@ -1,8 +1,6 @@
 #include "stack.h"
 #include "stack_internal.h"
 #include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 
 
 stack_t* stack_create(void){
@@ -51,7 +49,7 @@ void stack_push(stack_t* s, int value) {
         size_t new_capacity;
 
         if (s->impl.array.capacity == 0) {
-            new_capacity = 1;
+            new_capacity = 4;
         } else {
             new_capacity = s->impl.array.capacity * 2;
         }

@@ -1,8 +1,6 @@
 #include "stack.h"
 #include "stack_internal.h"
 #include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 
 
 stack_t* stack_create(void){

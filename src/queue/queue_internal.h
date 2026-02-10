@@ -5,9 +5,6 @@
 #include <stddef.h>
 #include <assert.h>
 
-/* =========================
- * Queue representations
- * ========================= */
 
 typedef enum {
     QUEUE_ARRAY,
@@ -37,9 +34,6 @@ struct queue {
     } impl;
 };
 
-/* =========================
- * Invariant checking
- * ========================= */
 
 /*
  * Checks whether the queue satisfies its representation invariants.

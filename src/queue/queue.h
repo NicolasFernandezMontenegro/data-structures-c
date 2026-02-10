@@ -4,10 +4,6 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-/*
- * Opaque queue type.
- * The internal representation is hidden from the user.
- */
 typedef struct queue queue_t;
 
 /*

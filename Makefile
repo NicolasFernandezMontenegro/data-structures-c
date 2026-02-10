@@ -30,14 +30,30 @@ BIN_QUEUE_ARRAY = test_queue_array
 BIN_QUEUE_LIST  = test_queue_list
 
 # =======================
+# Deque
+# =======================
+DEQUE_DIR = $(SRC)/deque
+
+DEQUE_ARRAY_SRC = $(DEQUE_DIR)/deque_array.c
+DEQUE_LIST_SRC  = $(DEQUE_DIR)/deque_list.c
+DEQUE_INTERNAL  = $(DEQUE_DIR)/deque_internal.c
+DEQUE_TEST      = $(DEQUE_DIR)/test_deque.c
+
+BIN_DEQUE_ARRAY = test_deque_array
+BIN_DEQUE_LIST  = test_deque_list
+
+
+# =======================
 # Targets
 # =======================
-.PHONY: all stack queue clean
+.PHONY: all stack queue deque clean
 
-all: stack queue
+all: stack queue deque
+
 
 stack: $(BIN_STACK_ARRAY) $(BIN_STACK_LIST)
 queue: $(BIN_QUEUE_ARRAY) $(BIN_QUEUE_LIST)
+deque: $(BIN_DEQUE_ARRAY) $(BIN_DEQUE_LIST)
 
 # =======================
 # Stack builds
@@ -58,9 +74,21 @@ $(BIN_QUEUE_LIST): $(QUEUE_LIST_SRC) $(QUEUE_INTERNAL) $(QUEUE_TEST)
 	$(CC) $(CFLAGS) $^ -o $@
 
 # =======================
+# Deque builds
+# =======================
+$(BIN_DEQUE_ARRAY): $(DEQUE_ARRAY_SRC) $(DEQUE_INTERNAL) $(DEQUE_TEST)
+	$(CC) $(CFLAGS) $^ -o $@
+
+$(BIN_DEQUE_LIST): $(DEQUE_LIST_SRC) $(DEQUE_INTERNAL) $(DEQUE_TEST)
+	$(CC) $(CFLAGS) $^ -o $@
+
+
+# =======================
 # Clean
 # =======================
 clean:
 	rm -f \
 	$(BIN_STACK_ARRAY) $(BIN_STACK_LIST) \
-	$(BIN_QUEUE_ARRAY) $(BIN_QUEUE_LIST)
+	$(BIN_QUEUE_ARRAY) $(BIN_QUEUE_LIST) \
+	$(BIN_DEQUE_ARRAY) $(BIN_DEQUE_LIST)
+

@@ -48,16 +48,16 @@ static void test_interleaved_operations(void) {
 
     queue_enqueue(q, 1);
     queue_enqueue(q, 2);
-    queue_dequeue(q);              // removes 1
+    queue_dequeue(q);              
     assert(queue_front(q) == 2);
 
     queue_enqueue(q, 3);
     assert(queue_front(q) == 2);
 
-    queue_dequeue(q);              // removes 2
+    queue_dequeue(q);              
     assert(queue_front(q) == 3);
 
-    queue_dequeue(q);              // removes 3
+    queue_dequeue(q);              
     assert(queue_is_empty(q));
 
     queue_destroy(q);

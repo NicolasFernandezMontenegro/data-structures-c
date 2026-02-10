@@ -4,10 +4,6 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-/*
- * Opaque stack type.
- * The internal representation is hidden from the user.
- */
 typedef struct stack stack_t;
 
 /*

@@ -18,7 +18,9 @@ Each module is implemented as an independent component with its own header, impl
   - Array-based circular buffer queue
   - Linked-list-based queue
 
-
+- Deque ADT
+  - Array-based circular buffer deque
+  - Linked-list-based deque
 ---
 
 ## Design Principles
@@ -73,11 +75,16 @@ This builds the following test binaries:
 
     test_queue_list
 
+    test_deque_array
+
+    test_deque_list
+
 Each data structure can also be built independently:
 
 ```bash
 make stack
 make queue
+make deque
 ```
 
 To clean all generated binaries:

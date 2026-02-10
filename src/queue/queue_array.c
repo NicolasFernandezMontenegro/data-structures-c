@@ -1,8 +1,7 @@
 #include "queue.h"
 #include "queue_internal.h"
 #include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
+
 
 queue_t* queue_create(void){
     queue_t * q = malloc(sizeof(* q));
@@ -43,7 +42,7 @@ size_t queue_size(const queue_t* q){
 void queue_enqueue(queue_t* q, int value){
     assert(queue_invariant(q) && q->repr == QUEUE_ARRAY);
     if (q->impl.array.capacity == 0){
-        int new_cap = 1;
+        int new_cap = 4;
         int *new = malloc(sizeof(int) * new_cap);
         assert(new != NULL);
         q->impl.array.data = new;

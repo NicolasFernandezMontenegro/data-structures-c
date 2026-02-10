@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include "stack.h"
 
-/* Test 1: stack recién creado */
 static void test_create_empty(void) {
     stack_t *s = stack_create();
     assert(s != NULL);
@@ -11,7 +10,7 @@ static void test_create_empty(void) {
     stack_destroy(s);
 }
 
-/* Test 2: push y top */
+
 static void test_push_and_top(void) {
     stack_t *s = stack_create();
 
@@ -27,7 +26,7 @@ static void test_push_and_top(void) {
     stack_destroy(s);
 }
 
-/* Test 3: push, pop y top */
+
 static void test_push_pop_sequence(void) {
     stack_t *s = stack_create();
 
@@ -49,7 +48,6 @@ static void test_push_pop_sequence(void) {
     stack_destroy(s);
 }
 
-/* Test 4: intercalar operaciones */
 static void test_interleaved_operations(void) {
     stack_t *s = stack_create();
 
@@ -67,7 +65,7 @@ static void test_interleaved_operations(void) {
     stack_destroy(s);
 }
 
-/* Test 5: muchos pushes (stress básico) */
+
 static void test_many_pushes(void) {
     stack_t *s = stack_create();
 
@@ -89,7 +87,6 @@ static void test_many_pushes(void) {
 }
 
 
-/* Main */
 int main(void) {
     test_create_empty();
     test_push_and_top();

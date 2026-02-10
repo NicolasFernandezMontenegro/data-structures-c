@@ -1,8 +1,6 @@
 #include "queue.h"
 #include "queue_internal.h"
 #include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 
 queue_t* queue_create(void){
     queue_t * q = malloc(sizeof(* q));
